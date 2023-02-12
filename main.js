@@ -6,8 +6,7 @@ function getComputerChoice() {
     let computerChoice = getRandomInt(2);
     return computerChoice === 0 ? "rock"
     : computerChoice === 1 ? "paper"
-    : computerChoice === 2 ? "scissors"
-    : "something unexpected happened";
+    : "scissors"
 }
 
 function playRound(playerMove, computerMove) {
