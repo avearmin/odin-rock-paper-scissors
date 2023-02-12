@@ -9,3 +9,11 @@ function getComputerChoice() {
     : computerChoice === 2 ? "scissors"
     : "something unexpected happened";
 }
+
+function playRound(playerMove, computerMove) {
+    return playerMove === computerMove ? "tie"
+    : playerMove === "rock" && computerMove === "scissors" ? "player wins"
+    : playerMove === "scissors" && computerMove === "paper" ? "player wins"
+    : playerMove === "paper" && computerMove === "rock" ? "player wins"
+    : "computer wins";
+}
