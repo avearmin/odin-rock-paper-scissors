@@ -9,6 +9,15 @@ function getComputerChoice() {
     : "scissors";
 }
 
+function validatePlayerChoice() {
+    while (true) {
+        let playerChoice = prompt("Choose: rock, paper, scissors").toLowerCase();
+        if (playerChoice === "rock" || playerChoice === "paper" || playerChoice == "scissors") {
+            return playerChoice;
+        }
+    }
+}
+
 function playRound(playerMove, computerMove) {
     return playerMove === computerMove ? "tie"
     : playerMove === "rock" && computerMove === "scissors" ? "player wins"
