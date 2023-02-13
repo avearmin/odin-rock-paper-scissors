@@ -25,3 +25,19 @@ function playRound(playerMove, computerMove) {
     : playerMove === "paper" && computerMove === "rock" ? "player wins"
     : "computer wins";
 }
+
+function game() {
+    let playerWinCounter = 0;
+    let computerWinCounter = 0;
+
+    for (let i = 0; i < 5; i++) {
+        let playerMove = validatePlayerChoice();
+        let computerMove = getComputerChoice();
+        let roundResults = playRound(playerMove, computerMove);
+
+        roundResults === "player wins" ? playerWinCounter++ : computerWinCounter++;
+    }
+    return playerWinCounter > computerWinCounter ? "player wins the game"
+    : playerWinCounter < computerWinCounter ? "computer wins the game"
+    : "player and computer are tied";
+}
