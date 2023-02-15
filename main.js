@@ -19,11 +19,11 @@ function validatePlayerChoice() {
 }
 
 function playRound(playerMove, computerMove) {
-    return playerMove === computerMove ? "tie"
-    : playerMove === "rock" && computerMove === "scissors" ? "player wins"
-    : playerMove === "scissors" && computerMove === "paper" ? "player wins"
-    : playerMove === "paper" && computerMove === "rock" ? "player wins"
-    : "computer wins";
+    return playerMove === computerMove ? "Tie"
+    : playerMove === "rock" && computerMove === "scissors" ? "Player wins"
+    : playerMove === "scissors" && computerMove === "paper" ? "Player wins"
+    : playerMove === "paper" && computerMove === "rock" ? "Player wins"
+    : "Computer wins";
 }
 
 function game() {
@@ -34,10 +34,18 @@ function game() {
         let playerMove = validatePlayerChoice();
         let computerMove = getComputerChoice();
         let roundResults = playRound(playerMove, computerMove);
+        console.log(`Player picks ${playerMove}, Computer picks ${computerMove}: ${roundResults}`);
 
-        roundResults === "player wins" ? playerWinCounter++ : computerWinCounter++;
+        roundResults === "Player wins" ? playerWinCounter++ : computerWinCounter++;
+        console.log(`Player wins: ${playerWinCounter} Computer wins: ${computerWinCounter}`);
     }
-    return playerWinCounter > computerWinCounter ? "player wins the game"
-    : playerWinCounter < computerWinCounter ? "computer wins the game"
-    : "player and computer are tied";
+    if (playerWinCounter > computerWinCounter) {
+        console.log("Player wins the game");
+    } else if (playerWinCounter < computerWinCounter) {
+        console.log("Computer wins the game");
+    } else {
+        console.log("It's a tie game");
+    }
 }
+
+game();
