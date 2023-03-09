@@ -30,14 +30,13 @@ function game() {
     let playerWinCounter = 0;
     let computerWinCounter = 0;
 
-    for (let i = 0; i < 5; i++) {
-        let playerMove = validatePlayerChoice();
-        let computerMove = getComputerChoice();
-        let roundResults = playRound(playerMove, computerMove);
-        console.log(`Player picks ${playerMove}, Computer picks ${computerMove}: ${roundResults}`);
+    let playerMove = validatePlayerChoice();
+    let computerMove = getComputerChoice();
+    let roundResults = playRound(playerMove, computerMove);
+    console.log(`Player picks ${playerMove}, Computer picks ${computerMove}: ${roundResults}`);
 
-        roundResults === "Player wins" ? playerWinCounter++ : computerWinCounter++;
-        console.log(`Player wins: ${playerWinCounter} Computer wins: ${computerWinCounter}`);
+    roundResults === "Player wins" ? playerWinCounter++ : computerWinCounter++;
+    console.log(`Player wins: ${playerWinCounter} Computer wins: ${computerWinCounter}`);
     }
     if (playerWinCounter > computerWinCounter) {
         console.log("Player wins the game");
