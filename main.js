@@ -26,6 +26,18 @@ function playRound(playerMove, computerMove) {
     : "Computer wins";
 }
 
+function displayRoundResults(playerMove, computerMove, roundResults) {
+    let results = document.getElementById("results-display");
+    results.textContent = `Player picks ${playerMove}, Computer picks ${computerMove}: ${roundResults}`
+}
+
+function displayWinCounters(counter1, counter2) {
+    let playerScore = document.getElementById("player-score");
+    let computerScore = document.getElementById("computer-score");
+    playerScore.textContent = `Player Wins: ${counter1}`;
+    computerScore.textContent = `Computer Wins: ${counter2}`;
+}
+
 function game() {
     let playerWinCounter = 0;
     let computerWinCounter = 0;
@@ -33,11 +45,11 @@ function game() {
     let playerMove = validatePlayerChoice();
     let computerMove = getComputerChoice();
     let roundResults = playRound(playerMove, computerMove);
-    console.log(`Player picks ${playerMove}, Computer picks ${computerMove}: ${roundResults}`);
+    displayRoundResults(playerMove, computerMove, roundResults);
 
     roundResults === "Player wins" ? playerWinCounter++ : computerWinCounter++;
-    console.log(`Player wins: ${playerWinCounter} Computer wins: ${computerWinCounter}`);
-    }
+    displayWinCounters(playerWinCounter, computerWinCounter);
+
     if (playerWinCounter > computerWinCounter) {
         console.log("Player wins the game");
     } else if (playerWinCounter < computerWinCounter) {
