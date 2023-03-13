@@ -4,9 +4,7 @@ function getRandomInt(max) {
 
 function getComputerChoice() {
     let computerChoice = getRandomInt(2);
-    return computerChoice === 0 ? "rock"
-    : computerChoice === 1 ? "paper"
-    : "scissors";
+    return computerChoice === 0 ? "rock" : computerChoice === 1 ? "paper" : "scissors";
 }
 
 function validatePlayerChoice() {
@@ -38,6 +36,16 @@ function displayWinCounters(counter1, counter2) {
     computerScore.textContent = `Computer Wins: ${counter2}`;
 }
 
+function checkForMatchWinner(playerWinCounter, computerWinCounter) {
+    return (playerWinCounter === 5) || (computerWinCounter === 5);
+}
+
+function displayMatchResults(playerWinCounter, computerWinCounter) {
+    let results = document.getElementById("results-display");
+    playerWinCounter > computerWinCounter ? results.textContent = "The Player Wins!"
+    : results.textContent = "The Computer Wins!";
+}
+
 function game() {
     let playerWinCounter = 0;
     let computerWinCounter = 0;
@@ -45,18 +53,12 @@ function game() {
     let playerMove = validatePlayerChoice();
     let computerMove = getComputerChoice();
     let roundResults = playRound(playerMove, computerMove);
-    displayRoundResults(playerMove, computerMove, roundResults);
-
     roundResults === "Player wins" ? playerWinCounter++ : computerWinCounter++;
-    displayWinCounters(playerWinCounter, computerWinCounter);
+    let isMatchOver = checkForMatchWinner(playerWinCounter, computerWinCounter);
 
-    if (playerWinCounter > computerWinCounter) {
-        console.log("Player wins the game");
-    } else if (playerWinCounter < computerWinCounter) {
-        console.log("Computer wins the game");
-    } else {
-        console.log("It's a tie game");
-    }
+    displayRoundResults(playerMove, computerMove, roundResults);
+    displayWinCounters(playerWinCounter, computerWinCounter);
+    if (isMatchOver === true) displayMatchResults(playerWinCounter, computerWinCounter);
 }
 
 game();
