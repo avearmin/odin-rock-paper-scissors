@@ -16,7 +16,7 @@ function validatePlayerChoice() {
     }
 }
 
-function playRound(playerMove, computerMove) {
+function determineRoundWinner(playerMove, computerMove) {
     return playerMove === computerMove ? "Tie"
     : playerMove === "rock" && computerMove === "scissors" ? "Player wins"
     : playerMove === "scissors" && computerMove === "paper" ? "Player wins"
