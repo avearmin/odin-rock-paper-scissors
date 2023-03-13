@@ -1,3 +1,6 @@
+let playerWinCounter = 0;
+let computerWinCounter = 0;
+
 function getRandomInt(max) {
     return Math.floor(Math.random() * (max + 1));
 }
@@ -5,15 +8,6 @@ function getRandomInt(max) {
 function getComputerChoice() {
     let computerChoice = getRandomInt(2);
     return computerChoice === 0 ? "rock" : computerChoice === 1 ? "paper" : "scissors";
-}
-
-function validatePlayerChoice() {
-    while (true) {
-        let playerChoice = prompt("Choose: rock, paper, scissors").toLowerCase();
-        if (playerChoice === "rock" || playerChoice === "paper" || playerChoice == "scissors") {
-            return playerChoice;
-        }
-    }
 }
 
 function determineRoundWinner(playerMove, computerMove) {
@@ -46,19 +40,32 @@ function displayMatchResults(playerWinCounter, computerWinCounter) {
     : results.textContent = "The Computer Wins!";
 }
 
-function game() {
-    let playerWinCounter = 0;
-    let computerWinCounter = 0;
-
-    let playerMove = validatePlayerChoice();
+function playRound(playerMove) {
     let computerMove = getComputerChoice();
-    let roundResults = playRound(playerMove, computerMove);
+    let roundResults = determineRoundWinner(playerMove, computerMove);
     roundResults === "Player wins" ? playerWinCounter++ : computerWinCounter++;
     let isMatchOver = checkForMatchWinner(playerWinCounter, computerWinCounter);
 
     displayRoundResults(playerMove, computerMove, roundResults);
     displayWinCounters(playerWinCounter, computerWinCounter);
-    if (isMatchOver === true) displayMatchResults(playerWinCounter, computerWinCounter);
+    if (isMatchOver) {
+	displayMatchResults(playerWinCounter, computerWinCounter);
+	playerWinCounter = 0;
+        computerWinCounter = 0;
+    }
+}
+
+function game() {
+    let rockButton = document.getElementById("rock-button");
+    let paperButton = document.getElementById("paper-button");
+    let scissorsButton = document.getElementById("scissors-button");
+    
+    rockButton.addEventListener("click", function() {
+	playRound("rock")});
+    paperButton.addEventListener("click", function() {
+	playRound("paper")});
+    scissorsButton.addEventListener("click", function() {
+	playRound("scissors")});
 }
 
 game();
