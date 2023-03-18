@@ -31,7 +31,11 @@ function displayWinCounters(counter1, counter2) {
 }
 
 function updateWinCounters(roundResults) {
-    roundResults === "Player wins" ? playerWinCounter++ : computerWinCounter++;
+    if (roundResults === "Player wins") {
+        playerWinCounter++;
+    } else if (roundResults === "Computer wins") {
+        computerWinCounter++;
+    }
 }
 
 function checkForMatchWinner(playerWinCounter, computerWinCounter) {
