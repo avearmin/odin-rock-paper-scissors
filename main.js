@@ -30,7 +30,7 @@ function displayWinCounters(counter1, counter2) {
     computerScore.textContent = `Computer Wins: ${counter2}`;
 }
 
-function updateWinCounters(playerWinCounter, computerWinCounter, roundResults) {
+function updateWinCounters(roundResults) {
     roundResults === "Player wins" ? playerWinCounter++ : computerWinCounter++;
 }
 
@@ -52,14 +52,14 @@ function resetWinCounters() {
 function playRound(playerMove) {
     const computerMove = getComputerChoice();
     const roundResults = determineRoundWinner(playerMove, computerMove);
-    updateWinCounters(playerWinCounter, computerWinCounter, roundResults);
+    updateWinCounters(roundResults);
     const isMatchOver = checkForMatchWinner(playerWinCounter, computerWinCounter);
 
     displayRoundResults(playerMove, computerMove, roundResults);
     displayWinCounters(playerWinCounter, computerWinCounter);
     if (isMatchOver) {
 	    displayMatchResults(playerWinCounter, computerWinCounter);
-	    heckForMatchWinner(playerWinCounter, computerWinCounter)
+	    resetWinCounters();
     }
 }
 
