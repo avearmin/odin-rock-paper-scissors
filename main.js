@@ -6,8 +6,8 @@ function getRandomInt(max) {
 }
 
 function getComputerChoice() {
-    const computerChoice = getRandomInt(2);
-    return computerChoice === 0 ? "rock" : computerChoice === 1 ? "paper" : "scissors";
+    const possibleMoves = ["rock", "paper", "scissors"];
+    return possibleMoves[getRandomInt(2)];
 }
 
 function determineRoundWinner(playerMove, computerMove) {
