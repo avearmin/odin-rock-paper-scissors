@@ -13,3 +13,13 @@ body {
     gap: 25px;
     text-align: center;
 }
+
+button {
+    border: solid 5px #000000;
+    background-color: inherit;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+}
