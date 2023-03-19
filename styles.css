@@ -12,7 +12,7 @@ body {
     position: absolute;
     height: 99%;
     width: 99%;
-    gap: 25px;
+    gap: 100px;
     text-align: center;
 }
 
@@ -30,4 +30,11 @@ button:active {
 img {
     width: 150px;
     height: 150px;
+}
+
+#score-counters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
 }
