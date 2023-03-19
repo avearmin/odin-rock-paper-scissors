@@ -1,0 +1,15 @@
+body {
+   background-color: #FFF5EE;
+}
+
+#content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    height: 99%;
+    width: 99%;
+    gap: 25px;
+    text-align: center;
+}
