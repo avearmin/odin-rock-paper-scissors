@@ -44,8 +44,8 @@ function checkForMatchWinner(playerWinCounter, computerWinCounter) {
 
 function displayMatchResults(playerWinCounter, computerWinCounter) {
     const results = document.getElementById("results-display");
-    playerWinCounter > computerWinCounter ? results.textContent = "The Player Wins!"
-    : results.textContent = "The Computer Wins!";
+    playerWinCounter > computerWinCounter ? results.textContent = "The Player Wins! Select a new move to begin the game again."
+    : results.textContent = "The Computer Wins! Select a new move to begin the game again.";
 }
 
 function resetWinCounters() {
