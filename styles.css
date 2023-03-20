@@ -5,9 +5,6 @@ body {
 }
 
 #content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
     position: absolute;
     height: 99%;
@@ -33,8 +30,11 @@ img {
 }
 
 #score-counters {
+    gap: 50px;
+}
+
+.flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 50px;
 }
